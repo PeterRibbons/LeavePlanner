@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeavePlanner", "LeavePlanner\LeavePlanner.csproj", "{97973DB8-746F-4D5E-A116-9FE662AB5499}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LeavePlanner", "LeavePlanner\LeavePlanner.csproj", "{97973DB8-746F-4D5E-A116-9FE662AB5499}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLayer", "DataLayer\DataLayer.csproj", "{44CE2428-92F8-4585-AF06-6BE8A79F4DDA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "DataLayer\Data.csproj", "{44CE2428-92F8-4585-AF06-6BE8A79F4DDA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository", "Repository\Repository.csproj", "{B87AA2EA-D37F-4F73-9BAE-A67FEE864517}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{44CE2428-92F8-4585-AF06-6BE8A79F4DDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{44CE2428-92F8-4585-AF06-6BE8A79F4DDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{44CE2428-92F8-4585-AF06-6BE8A79F4DDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B87AA2EA-D37F-4F73-9BAE-A67FEE864517}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B87AA2EA-D37F-4F73-9BAE-A67FEE864517}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B87AA2EA-D37F-4F73-9BAE-A67FEE864517}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B87AA2EA-D37F-4F73-9BAE-A67FEE864517}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
