@@ -13,11 +13,7 @@ namespace Data.Models
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public string Comments { get; set; }
-        public DateTime ReturnDate { get; set; }
-        public int NumberOfDays {get;set;}
-        public string GeneralComments { get; set; }
-
-        public virtual Employee Employee { get; set; }
+         public virtual Employee Employee { get; set; }
         public virtual Employee Manager { get; set; }
     }
 }

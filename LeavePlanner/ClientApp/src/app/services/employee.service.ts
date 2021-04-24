@@ -8,7 +8,7 @@ import {Observable} from 'rxjs';
 export class EmployeeService {
 
   constructor(private http: HttpClient,@Inject('BASE_URL') private baseUrl: string) {
-    console.log(this.baseUrl);
+
   }
 
    getAll():Observable<Employee[]>{
@@ -17,6 +17,6 @@ export class EmployeeService {
 }
 
 export interface Employee {
-  EmployeeId: number,
+  EmployeeId: string,
   Name: string
 }

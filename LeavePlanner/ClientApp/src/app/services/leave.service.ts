@@ -8,11 +8,15 @@ import { HttpClient } from '@angular/common/http';
   
 export class LeaveService {
     constructor(private http: HttpClient,@Inject('BASE_URL') private baseUrl: string) {
+  
    }
 
-   post(leave:Leave)
+   post(leave:Leave):void
    {
-      this.http.post(this.baseUrl+"api/leave/post",leave);
+     var num:any;
+     num=leave.NumberOfDays;
+     leave.NumberOfDays=parseInt(num);
+      this.http.post<Leave>(this.baseUrl+"api/leave",leave,{}).subscribe(result=>alert("success"));
    }
 }
 

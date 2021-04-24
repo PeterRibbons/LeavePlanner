@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
@@ -17,6 +18,9 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material';
 import {MatNativeDateModule } from '@angular/material'
 import {MatInputModule} from '@angular/material';
+import {MatButtonModule} from '@angular/material/button';
+
+
 
 
 @NgModule({
@@ -35,9 +39,11 @@ import {MatInputModule} from '@angular/material';
     MatDatepickerModule,
     MatNativeDateModule,
     MatFormFieldModule,
+    MatButtonModule,
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },

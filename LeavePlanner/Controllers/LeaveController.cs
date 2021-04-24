@@ -18,7 +18,7 @@ namespace LeavePlanner.Controllers
         private LeaveRepository leaveRepository = new LeaveRepository();
         // POST api/<LeaveController>
         [HttpPost]
-        public void Post([FromBody] Leave leave)
+        public void post([FromBody] Leave leave)
         {
             leaveRepository.addLeave(leave);
         }

@@ -12,6 +12,7 @@ namespace Repository
         public void addLeave(Leave leave) {
             
             context.Leave.Add(leave);
+            context.SaveChanges();
         }
     }
 }
