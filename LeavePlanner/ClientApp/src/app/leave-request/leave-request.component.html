@@ -1,24 +1,27 @@
 <div class="main-container">
-    <div class="page-centered-content">
-        <div class="two-column-layout">
-            <form [formGroup]="leaveForm" (ngSubmit)="onSubmit()">
-                <div class="col">
-                    <mat-form-field appearance="outline">
-                        <mat-label>Applicant</mat-label>
-                        <mat-select formControlName="EmployeeId">
-                          <mat-option *ngFor="let employee of employees$ | async" [value]="employee.employeeId">{{employee.name}}</mat-option>
-                        </mat-select>
-                      </mat-form-field>
-                </div>
-                <div class="col">
-                    <mat-form-field appearance="outline">
-                        <mat-label>Manager</mat-label>
-                        <mat-select formControlName="ManagerId">
+<mat-card >
+    <form [formGroup]="leaveForm" (ngSubmit)="onSubmit()">
+    <mat-card-content>
+                <div fxflex fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign.sm="center center"  fxLayoutAlign.xs="center center">
+                    <div fxflex>
+                        <mat-form-field color="accent" appearance="outline">
+                            <mat-label>Applicant</mat-label>
+                            <mat-select formControlName="EmployeeId">
                             <mat-option *ngFor="let employee of employees$ | async" [value]="employee.employeeId">{{employee.name}}</mat-option>
-                        </mat-select>
-                      </mat-form-field>
-               </div>
-                <div class="col">
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div fxflex>
+                        <mat-form-field color="accent" appearance="outline">
+                            <mat-label>Manager</mat-label>
+                            <mat-select formControlName="ManagerId">
+                                <mat-option *ngFor="let employee of employees$ | async" [value]="employee.employeeId">{{employee.name}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                </div>
+            </div>
+            <div fxflex fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign.sm="center center"  fxLayoutAlign.xs="center center">
+                <div fxflex>
                     <mat-form-field color="accent" appearance="outline">
                         <mat-label>Start Date</mat-label>
                         <input matInput [matDatepicker]="StartDate" formControlName="StartDate">
@@ -26,7 +29,7 @@
                         <mat-datepicker #StartDate></mat-datepicker>
                       </mat-form-field>
                 </div>
-                <div class="col">
+                <div fxflex>
                     <mat-form-field color="accent" appearance="outline">
                         <mat-label>End Date</mat-label>
                         <input matInput [matDatepicker]="EndDate"formControlName="EndDate">
@@ -34,12 +37,15 @@
                         <mat-datepicker #EndDate></mat-datepicker>
                       </mat-form-field>
                 </div>
-                <div class="col"><mat-form-field appearance="outline">
+            </div>
+            <div fxflex fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign.sm="center center"  fxLayoutAlign.xs="center center">
+                <div fxflex>
+                    <mat-form-field color="accent" appearance="outline">
                     <mat-label>Days</mat-label>
                     <input matInput formControlName="NumberOfDays">
                   </mat-form-field>
                 </div>
-                <div class="col">
+                <div fxflex>
                     <mat-form-field color="accent" appearance="outline">
                         <mat-label>Return Date</mat-label>
                         <input matInput [matDatepicker]="returnDate" formControlName="ReturnDate">
@@ -47,18 +53,18 @@
                         <mat-datepicker #returnDate></mat-datepicker>
                       </mat-form-field>
                 </div>
-                <div class="col-full">
-                    <mat-form-field appearance="outline">
+            </div>
+                <div fxflex fxlayout="row" fxLayoutAlign="space-around">
+                    <mat-form-field color="accent" appearance="outline" fxFill>
                     <mat-label>General Comments</mat-label>
                     <textarea matInput formControlName="Comments" #Comments></textarea>
                   </mat-form-field></div>
-                  <div class="footer">
-                    <button mat-stroked-button>Cancel</button>
-                    <button mat-stroked-button color="primary" type="submit" [disabled]="!leaveForm.valid" value="Submit">Submit</button>
-                </div>
-            </form>
-    
-        </div>
-    </div>
-
+        
+    </mat-card-content>
+    <mat-card-footer fxLayout="row" fxLayoutAlign="space-around">
+            <button mat-stroked-button>Cancel</button>
+            <button mat-stroked-button color="primary" type="submit" [disabled]="!leaveForm.valid" value="Submit">Submit</button>
+    </mat-card-footer>
+    </form>
+</mat-card>
 </div>

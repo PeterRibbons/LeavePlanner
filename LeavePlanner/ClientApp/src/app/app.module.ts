@@ -19,9 +19,9 @@ import {MatSelectModule} from '@angular/material';
 import {MatNativeDateModule } from '@angular/material'
 import {MatInputModule} from '@angular/material';
 import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
 
-
-
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -40,6 +40,8 @@ import {MatButtonModule} from '@angular/material/button';
     MatNativeDateModule,
     MatFormFieldModule,
     MatButtonModule,
+    MatCardModule,
+    FlexLayoutModule,
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
