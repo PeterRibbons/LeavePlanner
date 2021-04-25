@@ -41,17 +41,17 @@
             <div fxflex fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign.sm="center center"  fxLayoutAlign.xs="center center">
                 <div fxflex>
                     <mat-form-field color="accent" appearance="outline">
-                    <mat-label>Days</mat-label>
-                    <input matInput formControlName="NumberOfDays">
-                  </mat-form-field>
-                </div>
-                <div fxflex>
-                    <mat-form-field color="accent" appearance="outline">
                         <mat-label>Return Date</mat-label>
                         <input matInput [matDatepicker]="returnDate" formControlName="ReturnDate">
                         <mat-datepicker-toggle matSuffix [for]="returnDate"></mat-datepicker-toggle>
                         <mat-datepicker #returnDate></mat-datepicker>
                       </mat-form-field>
+                </div>
+                <div fxflex>
+                    <mat-form-field color="accent" appearance="outline">
+                    <mat-label>Number of days</mat-label>
+                    <input matInput formControlName="NumberOfDays">
+                  </mat-form-field>
                 </div>
             </div>
                 <div fxflex fxlayout="row" fxLayoutAlign="space-around">
@@ -62,8 +62,8 @@
         
     </mat-card-content>
     <mat-card-footer fxLayout="row" fxLayoutAlign="space-around">
-            <button mat-stroked-button type="button">Cancel</button>
             <button mat-stroked-button color="primary" type="submit" [disabled]="!leaveForm.valid" value="Submit">Submit</button>
+            <button mat-stroked-button type="button">Cancel</button>
     </mat-card-footer>
     </form>
 </mat-card>
