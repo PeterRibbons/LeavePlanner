@@ -2,9 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import {EmployeeService,Employee} from "../services/employee.service";
 import {LeaveService} from "../services/leave.service";
-import { FormBuilder } from '@angular/forms';
 import { Validators } from '@angular/forms';
-import { FormArray } from '@angular/forms';
+import {FormBuilder,FormGroup, ValidationErrors, ValidatorFn} from '@angular/forms'
+import { AbstractControl } from '@angular/forms';
+
+
 
 @Component({
   selector: 'app-leave-request',
@@ -20,8 +22,9 @@ export class LeaveRequestComponent implements OnInit {
     EndDate: [, { validators: [Validators.required], updateOn: "change" }],
     NumberOfDays: [''],
     ReturnDate: [''],
-    Comments: [''],
-  });
+    Comments: [, { validators: [Validators.maxLength(500)], updateOn: "change" }],
+  }, { validators: [this.managerValidator(),this.dateRangeValidator()] });
+
 
 
   constructor(private employeeService: EmployeeService, private leaveService:LeaveService, private formBuilder: FormBuilder) { 
@@ -35,5 +38,35 @@ export class LeaveRequestComponent implements OnInit {
 
   onSubmit()
   {
-    this.leaveService.post(this.leaveForm.value);  }
+    this.leaveService.post(this.leaveForm.value);  
+  }
+
+ 
+
+  public managerValidator() : ValidatorFn{
+    return (group: FormGroup): ValidationErrors => {
+       const control1 = group.controls['EmployeeId'];
+       const control2 = group.controls['ManagerId'];
+       if (control1.value === control2.value) {
+          control2.setErrors({Equivalent: true});
+       } else {
+          control2.setErrors(null);
+       }
+       return;
+   };
+  }
+
+  public dateRangeValidator() : ValidatorFn{
+    return (group: FormGroup): ValidationErrors => {
+       const startDate = group.controls['StartDate'];
+       const endDate = group.controls['EndDate'];
+       if (startDate.value > endDate.value) {
+          endDate.setErrors({notEquivalent: true});
+       } else {
+          endDate.setErrors(null);
+       }
+       return;
+  };
+}
+
 }

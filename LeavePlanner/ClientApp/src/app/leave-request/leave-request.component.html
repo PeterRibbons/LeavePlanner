@@ -18,7 +18,7 @@
                                 <mat-option *ngFor="let employee of employees$ | async" [value]="employee.employeeId">{{employee.name}}</mat-option>
                             </mat-select>
                         </mat-form-field>
-                </div>
+                    </div>
             </div>
             <div fxflex fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign.sm="center center"  fxLayoutAlign.xs="center center">
                 <div fxflex>
@@ -62,7 +62,7 @@
         
     </mat-card-content>
     <mat-card-footer fxLayout="row" fxLayoutAlign="space-around">
-            <button mat-stroked-button>Cancel</button>
+            <button mat-stroked-button type="button">Cancel</button>
             <button mat-stroked-button color="primary" type="submit" [disabled]="!leaveForm.valid" value="Submit">Submit</button>
     </mat-card-footer>
     </form>
