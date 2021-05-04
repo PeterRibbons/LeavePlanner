@@ -60,11 +60,17 @@ export class LeaveRequestComponent implements OnInit {
     return (group: FormGroup): ValidationErrors => {
        const startDate = group.controls['StartDate'];
        const endDate = group.controls['EndDate'];
+       const returnDate = group.controls['ReturnDate'];
        if (startDate.value > endDate.value) {
           endDate.setErrors({notEquivalent: true});
        } else {
           endDate.setErrors(null);
        }
+       if (returnDate.value < endDate.value) {
+        returnDate.setErrors({notEquivalent: true});
+     } else {
+        returnDate.setErrors(null);
+     }
        return;
   };
 }
