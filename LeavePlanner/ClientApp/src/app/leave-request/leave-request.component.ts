@@ -21,7 +21,7 @@ export class LeaveRequestComponent implements OnInit {
     StartDate: [, { validators: [Validators.required], updateOn: "change" }],
     EndDate: [, { validators: [Validators.required], updateOn: "change" }],
     NumberOfDays: [''],
-    ReturnDate: [''],
+    ReturnDate:[, { validators: [Validators.required], updateOn: "change" }],
     Comments: [, { validators: [Validators.maxLength(500)], updateOn: "change" }],
   }, { validators: [this.managerValidator(),this.dateRangeValidator()] });
 
@@ -61,18 +61,50 @@ export class LeaveRequestComponent implements OnInit {
        const startDate = group.controls['StartDate'];
        const endDate = group.controls['EndDate'];
        const returnDate = group.controls['ReturnDate'];
+       const numberofdays = group.controls['NumberOfDays'];
        if (startDate.value > endDate.value) {
           endDate.setErrors({notEquivalent: true});
        } else {
-          endDate.setErrors(null);
+          endDate.setErrors(null);         
        }
        if (returnDate.value < endDate.value) {
         returnDate.setErrors({notEquivalent: true});
      } else {
         returnDate.setErrors(null);
      }
+
        return;
   };
+
+  
+}
+
+calculateNumDays()
+{
+  const startDate = this.leaveForm.controls['StartDate'].value;
+  const endDate = this.leaveForm.controls['EndDate'].value;
+  var numDays=this.getWeekdayCount(startDate,endDate);
+  this.leaveForm.controls["NumberOfDays"].setValue(numDays);
+}
+
+getWeekdayCount(startDate, endDate) {
+  if (startDate==null || endDate==null){
+    return 0;
+  }
+  if (startDate>endDate) {
+    return 0
+  }
+    
+  var count = 0;
+  var curDate = startDate;
+  while (curDate <= endDate) {
+      var dayOfWeek = curDate.getDay();
+      if(!((dayOfWeek == 6) || (dayOfWeek == 0)))
+         count++;
+      curDate.setDate(curDate.getDate() + 1);
+  }
+
+  return count;
 }
 
 }

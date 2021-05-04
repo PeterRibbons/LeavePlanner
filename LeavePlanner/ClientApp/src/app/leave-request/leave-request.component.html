@@ -24,7 +24,7 @@
                 <div fxflex>
                     <mat-form-field color="accent" appearance="outline">
                         <mat-label>Start Date</mat-label>
-                        <input matInput [matDatepicker]="StartDate" formControlName="StartDate">
+                        <input matInput [matDatepicker]="StartDate" formControlName="StartDate" (dateChange)=calculateNumDays()>
                         <mat-datepicker-toggle matSuffix [for]="StartDate"></mat-datepicker-toggle>
                         <mat-datepicker #StartDate></mat-datepicker>
                       </mat-form-field>
@@ -32,7 +32,7 @@
                 <div fxflex>
                     <mat-form-field color="accent" appearance="outline">
                         <mat-label>End Date</mat-label>
-                        <input matInput [matDatepicker]="EndDate"formControlName="EndDate">
+                        <input matInput [matDatepicker]="EndDate"formControlName="EndDate" (dateChange)=calculateNumDays()>
                         <mat-datepicker-toggle matSuffix [for]="EndDate"></mat-datepicker-toggle>
                         <mat-datepicker #EndDate></mat-datepicker>
                       </mat-form-field>
